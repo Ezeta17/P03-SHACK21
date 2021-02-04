@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--
+  * Reto 03 - SummerHack 2021
+
+  * @version     v0.1 - beta
+  * @author      Josep Farias <ezeta17@gmail.com>
+  * @copyright:  ZetaLabs.net.ar - 2021
+
+  * History:
+  * v0.1 – Primera versión 
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 03 - SummerHack 2021</title>
+    <link rel="icon" href="public/ico/favicon.ico" type="image/ico">
+    <base href="http://127.0.0.1:5501/"> <!-- zetalabs.net.ar -->
+
+    <meta name="description" content="Reto Semanal del SummerHack 2021">
+    <meta name="keywords" content="SummerHack, Reto Semanal, html, css, curso, devrock">
+    <meta name="author" content="Josep Farias">
+    <meta name="copyright" content="ZetaLabs | 2021">
+
+    <!-- Robots-->
+    <meta name="robots" content="noindex nofallow">
+    <!-- /Robots-->
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Practicas en JS | ZetaLabs.net.ar">
+    <meta property="og:description" content="Reto Semanal del SummerHack 2021">
+    <meta property="og:image" content="img/logo-512x512.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://ZetaLabs.net.ar/">
+    <!-- /Facebook Open Graph -->
+
+    <!-- Twitter Open Graph -->
+    <meta property="twitter:title" content="Practicas en JS | ZetaLabs.net.ar">
+    <meta property="twitter:description" content="Reto Semanal del SummerHack 2021">
+    <meta property="twitter:image" content="img/logo-512x512.png">
+    <meta property="twitter:type" content="article">
+    <meta property="twitter:url" content="http://ZetaLabs.net.ar/">
+    <!-- /Twitter Open Graph -->
+
+    <!-- CSS -->
+    <link href="public/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="public/css/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="public/css/brands.css" rel="stylesheet" type="text/css">
+    <link href="public/css/solid.css" rel="stylesheet" type="text/css">
+    <link href="public/css/zetatyles.css" rel="stylesheet" type="text/css">
+    <style>
+        #pantallaVacio,
+        #pantallaDetalle,
+        #pantallaListado{
+            display: none;
+        }
+
+        .escondido{
+            display: none;
+        }
+        
+        .jumbotron{
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        #btnAddArticulo{
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
+
+        #listArt_Icono{
+            width: 40px;
+            margin-left: 10px;
+
+        }
+
+        .img_pequeña{
+            width: 50px; 
+            height: 50px;
+            margin-right: 10px;
+        }
+        .img_mediana{
+            width: 100px; 
+            height: 100px;
+            margin-right: 10px;
+        }
+        .img_grande{
+            width: 200px; 
+            height: 200px;
+            margin-right: 10px;
+        }
+
+
+    </style>
+    <!-- /CSS -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Vamos de Shopping</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container" id="Prueba">
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="jumbotron mb-n1">
+                    <h1 class="display-4">Hola pibe!</h1>
+                    <p class="lead">Esta es la listita de compras para que no te olvides nada.</p>
+                    <span class="escondido">
+                        <hr class="my-4">
+                        <h5 class="text-center">AUN NO TIENES ARTICULOS PARA COMPRAR.</h5>
+                        <p class="text-center mt-5"><i class="fas fa-sad-cry fa-5x"></i></p>
+                    </span>
+                </div>
+                <ul class="list-group" id="contenedor">
+                    <a href="../public/" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100">
+                        <img src="public/img/item_05.png" alt="Articulo" class="rounded float-left img_pequeña listArt_Icono" id="listArtEmoji"> 
+                        <p class="lead pt-2" id="listArtNombre"> Sandia </p>
+                    </div>
+                    <p class="small lead my-0 escondido">Es una Fruta deliciosa.</p>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-md-12">
+            </div>
+        </div>
+
+
+
+
+
+    <section id="pantallaVacio">
+        <h1 class="pantallaVacio_Titulo">AUN NO TIENES PRODUCTOS PARA COMPRAR</h1>
+        <h1 class="pantallaVacio__emoji">😢</h1>
+    </section>
+    <section id="pantallaDetalle">
+        <h1>Soy el detalle del producto</h1>
+    </section>
+    <section id="pantallaListado">
+        <h1>Hola soy el listado</h1>
+    </section>
+
+
+
+<!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalCarga" id="btnAddArticulo">
+        <i class="fas fa-cart-plus fa-3x"></i>
+    </button>
+    
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCarga" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingrese el articulo a comprar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="cargaArticuloNombre">Articulo:</label>
+                        <input type="text" class="form-control form-control-sm" id="cargaArticuloNombre" placeholder="Ingrese el articulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cargaArticuloEmoji">Selecionar Categoria:</label>
+                        <select class="form-control form-control-sm" id="cargaArticuloEmoji">
+                            <option> 01. Bebidas </option>
+                            <option> 02. Carnes </option>
+                            <option> 03. Condimentos y Especias </option>
+                            <option> 04. Enlatados - </option>
+                            <option> 05. Frutas </option>
+                            <option> 06. Lateos </option>
+                            <option> 07. Limpieza - </option>
+                            <option> 08. Mascotas </option>
+                            <option> 09. Uso Personal </option>
+                            <option> 10. Vegetales </option>
+                            <option> 11. Viveres </option>
+                            <option> 12. Varios - </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargaArticuloInfo">Agregar descripción del articulo</label>
+                        <textarea class="form-control form-control-sm" id="cargaArticuloInfo" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnCarga">Agregar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- JS - jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script>
+
+
+        let btnGuardarArticulo = document.getElementById('btnCarga').addEventListener('click', function () {
+            // ELEMENTOS DEL FORMULARIO DEL MODAL
+            let formArtNombre = document.getElementById('cargaArticuloNombre')
+            let formArtEmoji = document.getElementById('cargaArticuloEmoji')
+            let formArtInfo = document.getElementById('cargaArticuloInfo')
+
+            // VALORES DEL FORMULARIO
+            let Nombre = formArtNombre.value
+            let Emoji = 'public/img/item_'+formArtEmoji.value.slice(0, 3)+'png'
+            let Info = formArtInfo.value
+
+            modelo = `<a href="../public/" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100">
+                        <img src="${Emoji}" alt="Articulo" class="rounded float-left img_pequeña listArt_Icono" id="listArtEmoji"> 
+                        <p class="lead pt-2" id="listArtNombre"> ${Nombre} </p>
+                    </div>
+                    <p class="small lead my-0 escondido">${Info}</p>
+                    </a>`
+
+            padre = document.getElementById('contenedor')
+                padre.innerHTML += modelo
+
+
+                formArtNombre.value = ""
+                formArtEmoji.value = "12. Varios - "
+                formArtInfo.value = ""
+        })
+    </script>
+    
+    <!-- /JS -->
+</body>
+</html>
